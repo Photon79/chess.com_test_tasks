@@ -1,13 +1,14 @@
-modules comments
-function comments
-test in different browsers
-css3
-use Document fragment 
-window's content
-unselectable titles
-overflow hidden
-jquery ui dialog's specs
-event bindings
-corner resizing
-
-github own site link
+TODO:
+ - modules comments
+ - function comments
+ - test in different browsers
+ - css3
+ - use Document fragment 
+ - window's content
+ - unselectable titles
+ - like jquery ui dialog's specs
+ - event bindings interface
+ - corner resizing
+ - content and title overflow
+ - cursor should back to initial position after border reaching 
+ - github own site link

@@ -160,7 +160,25 @@ window.Utils = (function (w) {
 			}
 
 			return {x: x, y: y};
-		}		
+		},
+		disableSelection: function (selector) {
+			var elem = this.$(selector);
+			this.each(elem, function() {
+				this.setAttribute('unselectable', 'on');
+				this.onselectstart = function () {
+					return false;
+				};
+			});
+		},
+		enableSelection: function (selector) {
+			var elem = this.$(selector);
+			this.each(elem, function() {
+				this.removeAttribute('unselectable');
+				this.onselectstart = null;
+			});
+		}
+		
+
 	};
 	
 })(window);
