@@ -1,6 +1,10 @@
 /*
+ *  Utils module
+ *  
  *  Depends on event.js
  **/
+ 
+ 
 window.Utils = (function (w) {
 
 	var d = w.document,
@@ -11,7 +15,9 @@ window.Utils = (function (w) {
 	}
 
 	function fbind (instance, fn) {
-		fn
+		fn = function () {
+			fn.call(instance);
+		}
 	}
 
 	return {
@@ -25,10 +31,12 @@ window.Utils = (function (w) {
 			return d.createElement(tag);
 		},
 		bind: function (elem, type, fn) {
-			Event.add(elem, type, fn);
+			fbind(elem, fn);
+			Event.add.apply(Event, arguments);
 		},
 		unbind: function (elem, type, fn) {
-			Event.remove(elem, type, fn);
+			fbind(elem, fn);
+			Event.remove.apply(Event, arguments);
 		},
 		each: function(object, callback, args) {
 			var name, i = 0,
@@ -151,7 +159,7 @@ window.Utils = (function (w) {
 				y = e.clientY + (d.documentElement.scrollTop || d.body.scrollTop) - d.documentElement.clientTop;
 			}
 
-			return {"x":x, "y":y};
+			return {x: x, y: y};
 		}		
 	};
 	

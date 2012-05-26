@@ -48,7 +48,7 @@
 				_popupCnt++;
 				if (_opts.modal) {
 					var tmp = this.createOverlay();
-					_overlay = (tmp)?tmp:_overlay;
+					_overlay = (tmp) ? tmp : _overlay;
 				}
 				_init.call(this);
 			}
