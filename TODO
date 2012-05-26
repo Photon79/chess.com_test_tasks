@@ -12,3 +12,8 @@ TODO:
  - content and title overflow
  - cursor should back to initial position after border reaching 
  - github own site link
+ 
+ 
+ extend prototype
+ setters & getters
+ event emitter for trigger and listen events
