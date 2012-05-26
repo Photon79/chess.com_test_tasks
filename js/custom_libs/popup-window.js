@@ -156,8 +156,8 @@
 					var coords = u.mousePageXY(e),
 						maxW = 0,
 						maxH = 0;
-					maxW = Math.max(screen.width, screen.scrollX);
-					maxH = Math.max(screen.height, screen.scrollY);
+					maxW = Math.max(screen.width, screen.scrollX) - 10;
+					maxH = Math.max(screen.height, screen.scrollY) - 10;
 					if (coords.x != obj.x || coords.y != obj.y) {
 						stepX = coords.x - obj.x;
 						stepY = coords.y - obj.y;
@@ -320,6 +320,7 @@
 			}
 			function _stopDrag() {
 				var popups = u.$('.popup');
+				u.enableSelection('body');
 				u.unbind(window, 'mousemove');
 				u.each(popups, function() {
 					this.obj.dragState = false;
@@ -328,6 +329,7 @@
 			function _checkDrag(e, obj) {
 				var popups = u.$('.popup'),
 					coords = u.mousePageXY(e);
+				u.disableSelection('body');
 				u.each(popups, function() {
 					this.style.zIndex = 1001;
 				});
@@ -345,6 +347,7 @@
 			}
 			function _resizeWrap(e, obj, type) {
 				var popups = u.$('.popups');
+				u.disableSelection('body');
 				u.each(popups, function() {
 					this.style.zIndex = 1001;
 				});
